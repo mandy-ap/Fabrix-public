@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Fabrix</title>
+  <meta name="description" content="Besoin d'aide avec Fabrix ? Contactez notre équipe à fabrix@codimpact.ca." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #FDFAF4;
+      color: #3D1F0A;
+      line-height: 1.6;
+      padding: 24px 16px 64px;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid rgba(232,169,106,.4);
+      border-radius: 12px;
+      padding: 48px 56px;
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 28px 20px; }
+    }
+
+    /* Logo texte */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      text-decoration: none;
+    }
+    .brand-icon {
+      width: 36px; height: 36px;
+      background: #B85A0F;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 18px; font-weight: 800;
+      flex-shrink: 0;
+    }
+    .brand-name {
+      font-size: 22px; font-weight: 800;
+      color: #3D1F0A; letter-spacing: -.3px;
+    }
+
+    /* Hero */
+    .hero { text-align: center; margin-bottom: 40px; }
+    .hero h1 { font-size: 30px; font-weight: 800; margin-bottom: 10px; }
+    .hero p  { font-size: 16px; color: #4A3728; max-width: 500px; margin: 0 auto; }
+
+    hr { border: none; border-top: 1px solid rgba(232,169,106,.4); margin: 36px 0; }
+
+    /* Carte de contact */
+    .contact-card {
+      background: #F5ECD8;
+      border: 1px solid rgba(232,169,106,.4);
+      border-radius: 10px;
+      padding: 32px;
+      text-align: center;
+    }
+    .contact-card h2 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .contact-card p  { font-size: 14px; color: #4A3728; margin-bottom: 20px; line-height: 1.6; }
+
+    .btn {
+      display: inline-block;
+      background: #B85A0F;
+      color: #fff;
+      font-size: 15px; font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .btn:hover { background: #993C0C; }
+
+    /* FAQ */
+    h3.faq-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+
+    .faq-item {
+      border-left: 3px solid #B85A0F;
+      padding-left: 16px;
+      margin-bottom: 24px;
+    }
+    .faq-item dt { font-size: 14px; font-weight: 700; color: #3D1F0A; margin-bottom: 6px; }
+    .faq-item dd { font-size: 14px; color: #4A3728; line-height: 1.6; }
+
+    a { color: #B85A0F; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+
+    .footer {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(232,169,106,.4);
+      font-size: 13px;
+      color: #4A3728;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <a class="brand" href="https://mandy-ap.github.io/Fabrix-public/">
+      <div class="brand-icon">F</div>
+      <span class="brand-name">Fabrix</span>
+    </a>
+
+    <div class="hero">
+      <h1>Centre d'aide Fabrix</h1>
+      <p>Une question&nbsp;? Un problème&nbsp;? Notre équipe est là pour vous aider.</p>
+    </div>
+
+    <div class="contact-card">
+      <h2>Nous écrire par courriel</h2>
+      <p>
+        Décrivez votre situation en quelques lignes et nous vous répondrons
+        dans les meilleurs délais &mdash; généralement sous 24 à 48 heures ouvrables.
+      </p>
+      <a class="btn" href="mailto:fabrix@codimpact.ca?subject=Demande%20de%20soutien%20Fabrix">
+        ✉&nbsp; fabrix@codimpact.ca
+      </a>
+    </div>
+
+    <hr />
+
+    <h3 class="faq-title">Questions fréquentes</h3>
+
+    <dl>
+      <div class="faq-item">
+        <dt>Comment réinitialiser mon mot de passe ?</dt>
+        <dd>
+          Sur l'écran de connexion, appuyez sur « Mot de passe oublié ? » et suivez les
+          instructions envoyées par courriel.
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>Comment configurer l'authentification à deux facteurs ?</dt>
+        <dd>
+          Une fois connecté, allez dans <strong>Compte → Authentification à 2 facteurs</strong>.
+          Vous pouvez choisir une application d'authentification (Google Authenticator, Authy,
+          etc.) ou recevoir un code par courriel.
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>Comment ajouter un membre à mon équipe ?</dt>
+        <dd>
+          Dans l'onglet <strong>Équipe</strong>, appuyez sur « Inviter un membre » et entrez
+          l'adresse courriel de la personne. Elle recevra une invitation par courriel.
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>Comment gérer mon abonnement ?</dt>
+        <dd>
+          Votre abonnement est géré directement par l'App Store (iOS) ou Google Play (Android).
+          Pour annuler ou modifier votre abonnement, rendez-vous dans les paramètres de votre
+          boutique d'applications.
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>Mes données sont-elles sécurisées ?</dt>
+        <dd>
+          Oui. Vos données sont hébergées sur des serveurs canadiens (Appwrite, Toronto) et
+          chiffrées en transit. Consultez notre
+          <a href="../politique-confidentialite/">politique de confidentialité</a>
+          pour plus de détails.
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt>Comment supprimer mon compte ?</dt>
+        <dd>
+          Vous pouvez supprimer votre compte depuis <strong>Compte → Supprimer mon compte</strong>
+          dans l'application. Toutes vos données seront effacées dans un délai de 30 jours.
+          Pour toute difficulté, écrivez-nous à
+          <a href="mailto:fabrix@codimpact.ca">fabrix@codimpact.ca</a>.
+        </dd>
+      </div>
+    </dl>
+
+    <div class="footer">
+      Fabrix est développé par <strong>Codimpact</strong>, une entreprise québécoise.<br />
+      <a href="mailto:fabrix@codimpact.ca">fabrix@codimpact.ca</a>
+      &nbsp;·&nbsp;
+      <a href="../politique-confidentialite/">Politique de confidentialité</a>
+    </div>
+
+  </div>
+</body>
+</html>

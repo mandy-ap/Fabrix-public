@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fabrix — par Codimpact</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #FDFAF4;
+      color: #3D1F0A;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      text-align: center;
+      max-width: 400px;
+    }
+    .icon {
+      width: 64px; height: 64px;
+      background: #B85A0F;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 32px; font-weight: 800; color: #fff;
+    }
+    h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+    p  { font-size: 15px; color: #4A3728; margin-bottom: 32px; }
+    .links { display: flex; flex-direction: column; gap: 12px; }
+    a {
+      display: block;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none;
+      transition: opacity .15s;
+    }
+    a:hover { opacity: .85; }
+    .primary   { background: #B85A0F; color: #fff; }
+    .secondary { border: 1.5px solid #B85A0F; color: #B85A0F; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">F</div>
+    <h1>Fabrix</h1>
+    <p>L'application de gestion pour artisans québécois.</p>
+    <nav class="links">
+      <a class="primary"   href="support/">Support</a>
+      <a class="secondary" href="politique-confidentialite/">Politique de confidentialité</a>
+    </nav>
+  </div>
+</body>
+</html>
