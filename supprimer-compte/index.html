@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supprimer mon compte — Fabrix</title>
+  <meta name="description" content="Demander la suppression de votre compte et de vos données Fabrix." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #FDFAF4;
+      color: #3D1F0A;
+      line-height: 1.6;
+      padding: 24px 16px 64px;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid rgba(232,169,106,.4);
+      border-radius: 12px;
+      padding: 48px 56px;
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 28px 20px; }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      text-decoration: none;
+    }
+    .brand-icon {
+      width: 36px; height: 36px;
+      background: #B85A0F;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      font-size: 18px; font-weight: 800;
+      flex-shrink: 0;
+    }
+    .brand-name {
+      font-size: 22px; font-weight: 800;
+      color: #3D1F0A; letter-spacing: -.3px;
+    }
+
+    h1 { font-size: 28px; font-weight: 800; color: #3D1F0A; margin-bottom: 10px; }
+    .lead {
+      font-size: 15px; color: #4A3728; line-height: 1.65;
+      margin-bottom: 0;
+    }
+
+    hr { border: none; border-top: 1px solid rgba(232,169,106,.4); margin: 32px 0; }
+
+    /* Option dans l'app */
+    .option-card {
+      border: 1px solid rgba(232,169,106,.4);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .option-card .badge {
+      display: inline-block;
+      background: #B85A0F;
+      color: #fff;
+      font-size: 11px; font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+    .option-card h2 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .option-card p  { font-size: 14px; color: #4A3728; line-height: 1.6; }
+
+    ol { padding-left: 20px; margin-top: 12px; }
+    ol li { font-size: 14px; color: #4A3728; margin-bottom: 6px; line-height: 1.55; }
+
+    /* Option par courriel */
+    .email-card {
+      background: #F5ECD8;
+      border: 1px solid rgba(232,169,106,.4);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 0;
+    }
+    .email-card h2 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .email-card p  { font-size: 14px; color: #4A3728; line-height: 1.6; margin-bottom: 16px; }
+
+    .btn {
+      display: inline-block;
+      background: #B85A0F;
+      color: #fff;
+      font-size: 15px; font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .btn:hover { background: #993C0C; }
+
+    /* Ce qui est supprimé */
+    h3 { font-size: 16px; font-weight: 700; margin-bottom: 14px; }
+    .data-list { list-style: none; padding: 0; }
+    .data-list li {
+      font-size: 14px; color: #4A3728;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(232,169,106,.3);
+      display: flex; align-items: flex-start; gap: 10px;
+      line-height: 1.5;
+    }
+    .data-list li:last-child { border-bottom: none; }
+    .check { color: #B85A0F; font-weight: 700; flex-shrink: 0; }
+
+    /* Délai */
+    .info-box {
+      background: rgba(184,90,15,.06);
+      border-left: 4px solid #B85A0F;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      font-size: 14px; color: #4A3728;
+      line-height: 1.6;
+    }
+    .info-box strong { color: #3D1F0A; }
+
+    a { color: #B85A0F; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+
+    .footer {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(232,169,106,.4);
+      font-size: 13px; color: #4A3728; text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <a class="brand" href="https://mandy-ap.github.io/Fabrix-public/">
+      <div class="brand-icon">F</div>
+      <span class="brand-name">Fabrix</span>
+    </a>
+
+    <h1>Supprimer mon compte</h1>
+    <p class="lead">
+      Vous pouvez demander la suppression de votre compte Fabrix et de l'ensemble de vos
+      données personnelles à tout moment, soit directement depuis l'application, soit en
+      nous écrivant par courriel.
+    </p>
+
+    <hr />
+
+    <!-- Option 1 : dans l'app -->
+    <div class="option-card">
+      <span class="badge">Option recommandée</span>
+      <h2>Depuis l'application Fabrix</h2>
+      <p>La façon la plus rapide de supprimer votre compte :</p>
+      <ol>
+        <li>Ouvrez l'application et connectez-vous.</li>
+        <li>Appuyez sur l'onglet <strong>Compte</strong>.</li>
+        <li>Faites défiler jusqu'en bas et appuyez sur <strong>Supprimer mon compte</strong>.</li>
+        <li>Confirmez votre choix. La suppression est immédiatement initiée.</li>
+      </ol>
+    </div>
+
+    <!-- Option 2 : par courriel -->
+    <div class="email-card">
+      <h2>Par courriel</h2>
+      <p>
+        Si vous n'avez plus accès à l'application, envoyez-nous un courriel depuis
+        l'adresse associée à votre compte Fabrix. Indiquez votre adresse courriel
+        et nous procéderons à la suppression dans les 30 jours.
+      </p>
+      <a class="btn" href="mailto:fabrix@codimpact.ca?subject=Demande%20de%20suppression%20de%20compte%20Fabrix">
+        ✉&nbsp; Envoyer la demande
+      </a>
+    </div>
+
+    <hr />
+
+    <!-- Ce qui est supprimé -->
+    <h3>Données supprimées</h3>
+    <ul class="data-list">
+      <li><span class="check">✓</span> Votre adresse courriel et votre nom</li>
+      <li><span class="check">✓</span> Vos données de compagnie (nom, membres)</li>
+      <li><span class="check">✓</span> Toutes vos données métier : commandes, inventaire, événements, ventes, clients</li>
+      <li><span class="check">✓</span> Votre historique de sessions et vos informations d'authentification</li>
+      <li><span class="check">✓</span> Votre identifiant anonymisé dans notre système de gestion des abonnements</li>
+    </ul>
+
+    <br />
+
+    <div class="info-box">
+      <strong>Délai de suppression :</strong> les données sont effacées de nos serveurs dans
+      un délai de <strong>30 jours</strong> suivant la demande, sauf obligation légale de
+      conservation contraire. Votre abonnement actif (App Store / Google Play) doit être
+      annulé séparément depuis votre boutique d'applications.
+    </div>
+
+    <div class="footer">
+      Des questions ? Écrivez-nous à
+      <a href="mailto:fabrix@codimpact.ca">fabrix@codimpact.ca</a>
+      &nbsp;·&nbsp;
+      <a href="../politique-confidentialite/">Politique de confidentialité</a>
+      &nbsp;·&nbsp;
+      <a href="../support/">Support</a>
+    </div>
+
+  </div>
+</body>
+</html>
