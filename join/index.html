@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rejoindre un atelier — Fabrix</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #F5F0E8;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: #FDFAF4;
+      border: 1px solid #E8DFD0;
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .logo-bar {
+      font-size: 28px;
+      font-weight: 700;
+      color: #B85A0F;
+      letter-spacing: -0.5px;
+      margin-bottom: 32px;
+    }
+
+    .icon-wrap {
+      width: 72px;
+      height: 72px;
+      background: rgba(184, 90, 15, 0.1);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 32px;
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid rgba(184, 90, 15, 0.2);
+      border-top-color: #B85A0F;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1A1A1A;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #5A4A3A;
+      line-height: 1.6;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(184, 90, 15, 0.1);
+      color: #B85A0F;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .fallback {
+      display: none;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #B85A0F;
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      justify-content: center;
+      margin-top: 12px;
+    }
+    .btn:hover { background: #9e4e0d; }
+    .btn.secondary {
+      background: transparent;
+      color: #B85A0F;
+      border: 1.5px solid #B85A0F;
+      margin-top: 8px;
+    }
+    .btn.secondary:hover { background: rgba(184,90,15,0.06); }
+
+    .manual-box {
+      margin-top: 20px;
+      padding: 16px;
+      background: #F5ECD8;
+      border: 1px solid rgba(232,169,106,0.5);
+      border-radius: 12px;
+      text-align: left;
+    }
+    .manual-box p { font-size: 13px; color: #5A4A3A; }
+    .manual-box ol {
+      font-size: 13px;
+      color: #5A4A3A;
+      padding-left: 18px;
+      margin-top: 8px;
+      line-height: 1.9;
+    }
+
+    .error-msg {
+      display: none;
+      background: #FEE2E2;
+      border: 1px solid #FCA5A5;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 14px;
+      color: #B91C1C;
+      margin-top: 20px;
+    }
+
+    .footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: #9A8A7A;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <div class="logo-bar">Fabrix</div>
+
+  <div class="icon-wrap" id="iconWrap">
+    <div class="spinner" id="spinner"></div>
+  </div>
+
+  <div id="badgeWrap"></div>
+  <h1 id="titre">Invitation en cours…</h1>
+  <p id="desc">Ouverture de l'application Fabrix…</p>
+
+  <div class="fallback" id="fallback">
+    <a href="#" id="btnOuvrir" class="btn">Ouvrir Fabrix</a>
+
+    <div class="manual-box" style="margin-top: 20px;">
+      <p><strong>Fabrix n'est pas installé ?</strong></p>
+      <ol>
+        <li>Téléchargez Fabrix sur l'App Store</li>
+        <li>Créez votre compte ou connectez-vous</li>
+        <li>Revenez sur ce lien pour rejoindre l'atelier</li>
+      </ol>
+    </div>
+
+    <a href="https://apps.apple.com/app/fabrix/id0000000000" class="btn secondary" style="margin-top: 16px;">
+      Télécharger sur l'App Store
+    </a>
+  </div>
+
+  <div class="error-msg" id="errorMsg"></div>
+  <div class="footer">Fabrix par Codimpact</div>
+</div>
+
+<script>
+  const params       = new URLSearchParams(window.location.search);
+  const teamId       = params.get('teamId');
+  const membershipId = params.get('membershipId');
+  const userId       = params.get('userId');
+  const secret       = params.get('secret');
+  const teamName     = params.get('teamName') || 'l\'atelier';
+
+  if (!teamId || !membershipId || !userId || !secret) {
+    document.getElementById('titre').textContent = 'Lien invalide';
+    document.getElementById('desc').textContent  = 'Ce lien d\'invitation est incomplet ou a expiré.';
+    document.getElementById('spinner').style.display = 'none';
+    document.getElementById('iconWrap').textContent = '❌';
+    const err = document.getElementById('errorMsg');
+    err.textContent = 'Paramètres manquants dans le lien d\'invitation. Contactez le propriétaire de l\'atelier pour recevoir une nouvelle invitation.';
+    err.style.display = 'block';
+  } else {
+    // Afficher le nom de l'atelier si disponible
+    const badge = document.getElementById('badgeWrap');
+    badge.innerHTML = `<div class="badge">Invitation — ${teamName}</div>`;
+
+    const qs       = `teamId=${encodeURIComponent(teamId)}&membershipId=${encodeURIComponent(membershipId)}&userId=${encodeURIComponent(userId)}&secret=${encodeURIComponent(secret)}`;
+    const deepLink = `fabrix://join?${qs}`;
+    document.getElementById('btnOuvrir').href = deepLink;
+
+    // Tentative d'ouverture automatique
+    window.location.href = deepLink;
+
+    // Fallback après 2,5 s
+    setTimeout(() => {
+      document.getElementById('titre').textContent = 'Rejoindre l\'atelier';
+      document.getElementById('desc').textContent  = 'Appuyez sur le bouton pour ouvrir Fabrix et finaliser votre inscription.';
+      document.getElementById('fallback').style.display = 'block';
+    }, 2500);
+  }
+</script>
+
+</body>
+</html>
