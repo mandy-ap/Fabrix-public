@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.codimpact.fabrix",
+    "sha256_cert_fingerprints": [
+      "D2:48:FD:AB:9A:03:20:A0:F3:26:94:D5:BB:CD:18:5B:F7:19:68:29:A6:E8:F8:C7:95:20:05:CC:09:55:27:C4"
+    ]
+  }
+}]
