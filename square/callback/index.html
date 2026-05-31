@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connexion Square — Fabrix</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #F5F0E8;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      max-width: 360px;
+      width: 100%;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #3D2B1F;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid #E8DDD5;
+      border-top-color: #8B6F5E;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 24px auto 20px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    p {
+      color: #7A6558;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .erreur {
+      display: none;
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 20px;
+      color: #B91C1C;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">Fabrix</div>
+    <div class="spinner" id="spinner"></div>
+    <p id="message">Retour dans l'application…</p>
+    <div class="erreur" id="erreur"></div>
+  </div>
+
+  <script>
+    var search = window.location.search; // "?code=xxx" ou "?error=xxx"
+    var params = new URLSearchParams(search);
+    var error  = params.get('error');
+
+    if (error) {
+      document.getElementById('spinner').style.display = 'none';
+      document.getElementById('message').textContent   = 'Autorisation refusée.';
+      var erreurEl = document.getElementById('erreur');
+      erreurEl.style.display = 'block';
+      erreurEl.textContent   = 'Square a répondu : ' + error;
+    } else {
+      // Redirige vers l'app Fabrix avec tous les paramètres reçus de Square
+      window.location.replace('fabrix://square/callback' + search);
+
+      // Fallback si le deep link ne s'ouvre pas dans les 3 secondes
+      setTimeout(function () {
+        document.getElementById('message').textContent =
+          'Si l\'application ne s\'ouvre pas automatiquement, revenez dans Fabrix manuellement.';
+        document.getElementById('spinner').style.display = 'none';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
