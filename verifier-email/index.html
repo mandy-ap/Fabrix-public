@@ -171,8 +171,8 @@
     try {
       // Appel direct à l'API REST Appwrite.
       // Fonctionne depuis n'importe quel navigateur, sans que l'app soit installée.
-      const res = await fetch(ENDPOINT + '/account/verification', {
-        method:  'PATCH',
+      const res = await fetch(ENDPOINT + '/account/verifications/email', {
+        method:  'PUT',
         headers: {
           'Content-Type':       'application/json',
           'X-Appwrite-Project': PROJECT_ID,
