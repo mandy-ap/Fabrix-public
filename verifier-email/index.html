@@ -36,19 +36,19 @@
     }
 
     .icon-wrap {
-      width: 72px;
-      height: 72px;
-      background: rgba(184, 90, 15, 0.1);
+      width: 72px; height: 72px;
       border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 24px;
+      background: rgba(184, 90, 15, 0.1);
     }
+    .icon-wrap.succes { background: rgba(39, 174, 96, 0.12); }
+    .icon-wrap.erreur { background: rgba(192, 57, 43, 0.1); }
 
     .spinner {
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       border: 3px solid rgba(184, 90, 15, 0.2);
       border-top-color: #B85A0F;
       border-radius: 50%;
@@ -56,33 +56,17 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    .check-icon {
-      display: none;
-      font-size: 36px;
-    }
+    .big-icon { font-size: 38px; display: none; }
 
-    h1 {
-      font-size: 20px;
-      font-weight: 700;
-      color: #1A1A1A;
-      margin-bottom: 10px;
-    }
+    h1 { font-size: 20px; font-weight: 700; color: #1A1A1A; margin-bottom: 10px; }
+    p  { font-size: 15px; color: #5A4A3A; line-height: 1.6; }
 
-    p {
-      font-size: 15px;
-      color: #5A4A3A;
-      line-height: 1.6;
-    }
-
-    .fallback {
-      display: none;
-      margin-top: 28px;
-    }
+    .actions { display: none; margin-top: 28px; flex-direction: column; gap: 10px; }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
       background: #B85A0F;
       color: #fff;
       text-decoration: none;
@@ -93,92 +77,125 @@
       border: none;
       cursor: pointer;
       width: 100%;
-      justify-content: center;
-      margin-top: 12px;
     }
     .btn:hover { background: #9e4e0d; }
-    .btn.secondary {
-      background: transparent;
-      color: #B85A0F;
-      border: 1.5px solid #B85A0F;
+
+    .note {
       margin-top: 8px;
-    }
-    .btn.secondary:hover { background: rgba(184,90,15,0.06); }
-
-    .error-msg {
-      display: none;
-      background: #FEE2E2;
-      border: 1px solid #FCA5A5;
-      border-radius: 10px;
-      padding: 14px 16px;
-      font-size: 14px;
-      color: #B91C1C;
-      margin-top: 20px;
-    }
-
-    .footer {
-      margin-top: 32px;
-      font-size: 12px;
+      font-size: 13px;
       color: #9A8A7A;
+      line-height: 1.5;
     }
+
+    .footer { margin-top: 32px; font-size: 12px; color: #9A8A7A; }
   </style>
 </head>
 <body>
-
 <div class="card">
   <div class="logo-bar">Fabrix</div>
 
   <div class="icon-wrap" id="iconWrap">
     <div class="spinner" id="spinner"></div>
-    <div class="check-icon" id="checkIcon">✅</div>
+    <div class="big-icon"  id="bigIcon"></div>
   </div>
 
   <h1 id="titre">Vérification en cours…</h1>
-  <p id="desc">Ouverture de l'application Fabrix…</p>
+  <p  id="desc">Confirmation de votre adresse courriel…</p>
 
-  <div class="fallback" id="fallback">
-    <p>Si l'application ne s'ouvre pas automatiquement :</p>
-    <a href="#" id="btnOuvrir" class="btn">Ouvrir Fabrix</a>
-    <p style="margin-top:16px; font-size:13px; color:#9A8A7A;">
-      Vous n'avez pas encore Fabrix ?
-    </p>
-    <a href="https://apps.apple.com/app/fabrix/id0000000000" class="btn secondary">
-      Télécharger sur l'App Store
-    </a>
-  </div>
-
-  <div class="error-msg" id="errorMsg"></div>
+  <div class="actions" id="actions"></div>
 
   <div class="footer">Fabrix par Codimpact</div>
 </div>
 
 <script>
-  const params  = new URLSearchParams(window.location.search);
-  const userId  = params.get('userId');
-  const secret  = params.get('secret');
+  const ENDPOINT   = 'https://tor.cloud.appwrite.io/v1';
+  const PROJECT_ID = '6a14866c000d73624922';
 
-  if (!userId || !secret) {
-    document.getElementById('titre').textContent   = 'Lien invalide';
-    document.getElementById('desc').textContent    = 'Ce lien de vérification est incomplet ou a expiré.';
+  const params = new URLSearchParams(window.location.search);
+  const userId = params.get('userId');
+  const secret = params.get('secret');
+
+  function setSucces() {
+    document.getElementById('iconWrap').classList.add('succes');
     document.getElementById('spinner').style.display = 'none';
-    const err = document.getElementById('errorMsg');
-    err.textContent = 'Paramètres manquants : userId ou secret introuvable dans le lien.';
-    err.style.display = 'block';
-  } else {
-    const deepLink = `fabrix://verifier-email?userId=${encodeURIComponent(userId)}&secret=${encodeURIComponent(secret)}`;
-    document.getElementById('btnOuvrir').href = deepLink;
+    const icon = document.getElementById('bigIcon');
+    icon.textContent = '✅';
+    icon.style.display = 'block';
 
-    // Tentative d'ouverture automatique
-    window.location.href = deepLink;
+    document.getElementById('titre').textContent = 'Courriel vérifié !';
+    document.getElementById('desc').textContent  =
+      'Votre adresse courriel a été confirmée. Vous pouvez maintenant vous connecter à Fabrix.';
 
-    // Après 2,5 s, si l'app n'a pas répondu, afficher le fallback
-    setTimeout(() => {
-      document.getElementById('titre').textContent = 'Ouvrir Fabrix';
-      document.getElementById('desc').textContent  = 'Appuyez sur le bouton ci-dessous pour finaliser la vérification dans l\'application.';
-      document.getElementById('fallback').style.display = 'block';
-    }, 2500);
+    const actions = document.getElementById('actions');
+    actions.style.display = 'flex';
+
+    const deepLink =
+      'fabrix://verifier-email'
+      + '?userId=' + encodeURIComponent(userId)
+      + '&secret=' + encodeURIComponent(secret);
+
+    actions.innerHTML =
+      '<a href="' + deepLink + '" class="btn">Ouvrir Fabrix sur mon téléphone</a>'
+      + '<p class="note">Sur ordinateur, votre compte est vérifié.'
+      + ' Ouvrez simplement Fabrix sur votre téléphone pour vous connecter.</p>';
+
+    // Sur mobile, tenter d'ouvrir l'app automatiquement
+    if (/android|iphone|ipad|ipod/i.test(navigator.userAgent)) {
+      window.location.href = deepLink;
+    }
   }
-</script>
 
+  function setErreur(message) {
+    document.getElementById('iconWrap').classList.add('erreur');
+    document.getElementById('spinner').style.display = 'none';
+    const icon = document.getElementById('bigIcon');
+    icon.textContent = '❌';
+    icon.style.display = 'block';
+
+    document.getElementById('titre').textContent = 'Lien invalide';
+    document.getElementById('desc').textContent  =
+      message || 'Ce lien est expiré ou a déjà été utilisé.';
+
+    const actions = document.getElementById('actions');
+    actions.style.display = 'flex';
+    actions.innerHTML =
+      '<p class="note">Connectez-vous à Fabrix pour recevoir un nouveau lien de vérification.</p>';
+  }
+
+  async function verifier() {
+    if (!userId || !secret) {
+      setErreur('Lien incomplet — paramètres manquants.');
+      return;
+    }
+
+    try {
+      // Appel direct à l'API REST Appwrite.
+      // Fonctionne depuis n'importe quel navigateur, sans que l'app soit installée.
+      const res = await fetch(ENDPOINT + '/account/verification', {
+        method:  'PATCH',
+        headers: {
+          'Content-Type':       'application/json',
+          'X-Appwrite-Project': PROJECT_ID,
+        },
+        body: JSON.stringify({ userId: userId, secret: secret }),
+      });
+
+      if (res.ok) {
+        setSucces();
+      } else {
+        const data = await res.json().catch(function() { return {}; });
+        if (res.status === 401 || (data && data.type === 'user_invalid_token')) {
+          setErreur('Ce lien est expiré ou a déjà été utilisé.');
+        } else {
+          setErreur((data && data.message) ? data.message : 'Erreur ' + res.status);
+        }
+      }
+    } catch (err) {
+      setErreur('Erreur réseau. Vérifiez votre connexion et réessayez.');
+    }
+  }
+
+  verifier();
+</script>
 </body>
 </html>
