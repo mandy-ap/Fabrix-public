@@ -1,217 +1,197 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Politique de confidentialité — Fabrix</title>
-  <meta name="description" content="Politique de confidentialité de l'application Fabrix, par Codimpact." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: #FDFAF4;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #F5F0E8;
       color: #3D1F0A;
-      line-height: 1.6;
-      padding: 24px 16px 64px;
+      padding: 32px 16px 64px;
     }
 
     .container {
-      max-width: 760px;
+      max-width: 720px;
       margin: 0 auto;
-      background: #fff;
-      border: 1px solid rgba(232,169,106,.4);
-      border-radius: 12px;
-      padding: 48px 56px;
     }
 
-    @media (max-width: 640px) {
-      .container { padding: 28px 20px; }
-    }
-
-    /* Logo texte */
-    .brand {
+    nav {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 32px;
-      text-decoration: none;
+      justify-content: space-between;
+      margin-bottom: 40px;
     }
-    .brand-icon {
-      width: 36px; height: 36px;
-      background: #B85A0F;
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff;
-      font-size: 18px; font-weight: 800;
-      flex-shrink: 0;
+    .logo { font-size: 22px; font-weight: 700; color: #B85A0F; text-decoration: none; }
+    nav a { font-size: 14px; color: #B85A0F; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+
+    .card {
+      background: #FDFAF4;
+      border: 1px solid rgba(232,169,106,0.4);
+      border-radius: 16px;
+      padding: 48px;
     }
-    .brand-name {
-      font-size: 22px; font-weight: 800;
-      color: #3D1F0A; letter-spacing: -.3px;
+    @media (max-width: 600px) { .card { padding: 28px 20px; } }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #3D1F0A;
+      margin-bottom: 4px;
     }
+    .subtitle { font-size: 16px; font-weight: 600; color: #B85A0F; margin-bottom: 4px; }
+    .meta     { font-size: 13px; color: #4A3728; margin-bottom: 0; }
 
-    h1 { font-size: 28px; font-weight: 800; color: #3D1F0A; margin-bottom: 4px; }
-    .subtitle { font-size: 15px; color: #B85A0F; font-weight: 600; margin-bottom: 4px; }
-    .meta { font-size: 13px; color: #4A3728; margin-bottom: 0; }
+    hr { border: none; border-top: 1px solid rgba(232,169,106,0.4); margin: 28px 0; }
 
-    hr { border: none; border-top: 1px solid rgba(232,169,106,.4); margin: 28px 0; }
-
-    h2 {
-      font-size: 16px; font-weight: 700; color: #3D1F0A;
-      margin-bottom: 10px; margin-top: 28px;
+    section { margin-bottom: 32px; }
+    section h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #3D1F0A;
+      margin-bottom: 10px;
     }
-    h2:first-of-type { margin-top: 0; }
-
-    p { font-size: 14px; color: #4A3728; margin-bottom: 12px; }
-
-    ul { padding-left: 20px; margin-bottom: 12px; }
-    li { font-size: 14px; color: #4A3728; margin-bottom: 6px; line-height: 1.55; }
+    section p, section ul {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #4A3728;
+    }
+    section ul { padding-left: 20px; }
+    section ul li { margin-bottom: 4px; }
 
     a { color: #B85A0F; font-weight: 600; }
     a:hover { text-decoration: underline; }
 
     strong { color: #3D1F0A; }
 
-    .footer {
+    footer {
       margin-top: 40px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(232,169,106,.4);
-      font-size: 13px;
-      color: #4A3728;
       text-align: center;
+      font-size: 13px;
+      color: #9A8A7A;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
 
-    <a class="brand" href="https://mandy-ap.github.io/Fabrix-public/">
-      <div class="brand-icon">F</div>
-      <span class="brand-name">Fabrix</span>
-    </a>
+  <nav>
+    <a href="../" class="logo">Fabrix</a>
+    <a href="../support/">Centre d'aide →</a>
+  </nav>
 
+  <div class="card">
     <h1>Politique de confidentialité</h1>
     <p class="subtitle">Fabrix — par Codimpact</p>
-    <p class="meta">En vigueur depuis le 27 mai 2026</p>
+    <p class="meta">En vigueur depuis le 7 juin 2026</p>
+    <hr>
 
-    <hr />
+    <section>
+      <h2>1. Qui sommes-nous ?</h2>
+      <p>Fabrix est une application mobile destinée aux artisans québécois. Elle est développée
+      et exploitée par Codimpact. Pour toute question relative à la présente politique, vous
+      pouvez nous joindre à <a href="mailto:fabrix@codimpact.ca">fabrix@codimpact.ca</a>.</p>
+    </section>
 
-    <h2>1. Qui sommes-nous ?</h2>
-    <p>
-      Fabrix est une application mobile destinée aux artisans québécois. Elle est développée
-      et exploitée par <strong>Codimpact</strong>. Pour toute question relative à la présente
-      politique, vous pouvez nous joindre à
-      <a href="mailto:fabrix@codimpact.ca">fabrix@codimpact.ca</a>.
-    </p>
+    <section>
+      <h2>2. Données collectées</h2>
+      <p>Nous collectons uniquement les données nécessaires au bon fonctionnement de l'application :</p>
+      <ul>
+        <li>Adresse courriel et nom, utilisés pour créer et gérer votre compte.</li>
+        <li>Données de compagnie (nom, membres), pour organiser votre atelier.</li>
+        <li>Données métier que vous saisissez (commandes, inventaire, événements, ventes).</li>
+        <li>Identifiant d'abonnement anonymisé, transmis à RevenueCat pour la gestion des achats intégrés.</li>
+        <li>Données techniques de session (jeton d'authentification, appareil), gérées par Appwrite.</li>
+        <li>Si vous utilisez l'intégration Square, des données de paiement (transactions, identifiant de commerçant) sont transmises à Square dans le cadre du traitement des ventes en personne.</li>
+      </ul>
+      <p style="margin-top:12px;">Nous ne collectons pas de données de géolocalisation ni de contacts. Les informations
+      financières collectées se limitent à ce qui est nécessaire à la validation de l'abonnement
+      et, le cas échéant, au traitement des paiements via Square.</p>
+    </section>
 
-    <h2>2. Données collectées</h2>
-    <p>Nous collectons uniquement les données nécessaires au bon fonctionnement de l'application :</p>
-    <ul>
-      <li>Adresse courriel et nom, utilisés pour créer et gérer votre compte.</li>
-      <li>Données de compagnie (nom, membres), pour organiser votre atelier.</li>
-      <li>Données métier que vous saisissez (commandes, inventaire, événements, ventes).</li>
-      <li>Identifiant d'abonnement anonymisé, transmis à RevenueCat pour la gestion des achats intégrés.</li>
-      <li>Données techniques de session (jeton d'authentification, appareil), gérées par Appwrite.</li>
-    </ul>
-    <p>
-      Nous ne collectons pas de données de géolocalisation, de contacts ni d'informations
-      financières au-delà de ce qui est nécessaire à la validation de l'abonnement.
-    </p>
+    <section>
+      <h2>3. Finalités du traitement</h2>
+      <p>Vos données sont utilisées exclusivement pour :</p>
+      <ul>
+        <li>Vous authentifier et sécuriser l'accès à votre compte.</li>
+        <li>Stocker et synchroniser vos données métier entre vos appareils.</li>
+        <li>Gérer votre abonnement et valider vos droits d'accès aux fonctionnalités.</li>
+        <li>Vous contacter si vous sollicitez notre soutien.</li>
+      </ul>
+    </section>
 
-    <h2>3. Finalités du traitement</h2>
-    <p>Vos données sont utilisées exclusivement pour :</p>
-    <ul>
-      <li>Vous authentifier et sécuriser l'accès à votre compte.</li>
-      <li>Stocker et synchroniser vos données métier entre vos appareils.</li>
-      <li>Gérer votre abonnement et valider vos droits d'accès aux fonctionnalités.</li>
-      <li>Vous contacter si vous sollicitez notre soutien.</li>
-    </ul>
+    <section>
+      <h2>4. Partage des données</h2>
+      <p>Vos données ne sont jamais vendues ni cédées à des tiers à des fins commerciales. Elles
+      peuvent être transmises aux seuls sous-traitants techniques suivants, dans la mesure
+      strictement nécessaire à leur rôle :</p>
+      <ul>
+        <li><strong>Appwrite</strong> (infrastructure infonuagique, Toronto, Canada) — authentification et stockage des données.</li>
+        <li><strong>RevenueCat</strong> (États-Unis) — gestion des abonnements et des achats intégrés via l'App Store et Google Play.</li>
+        <li><strong>Square</strong> (États-Unis) — traitement des paiements en personne, pour les utilisateurs ayant activé l'intégration Square. Les données transmises sont régies par la <a href="https://squareup.com/ca/fr/legal/general/privacy" target="_blank">politique de confidentialité de Square</a>.</li>
+      </ul>
+      <p style="margin-top:12px;">Ces fournisseurs sont tenus contractuellement de protéger vos données et ne peuvent les
+      utiliser qu'aux fins pour lesquelles elles leur sont communiquées.</p>
+    </section>
 
-    <h2>4. Partage des données</h2>
-    <p>
-      Vos données ne sont jamais vendues ni cédées à des tiers à des fins commerciales.
-      Elles peuvent être transmises aux seuls sous-traitants techniques suivants, dans la
-      mesure strictement nécessaire à leur rôle :
-    </p>
-    <ul>
-      <li>
-        <strong>Appwrite</strong> (infrastructure infonuagique, Toronto, Canada) —
-        authentification et stockage des données.
-      </li>
-      <li>
-        <strong>RevenueCat</strong> (États-Unis) — gestion des abonnements et des achats
-        intégrés via l'App Store et Google Play.
-      </li>
-    </ul>
-    <p>
-      Ces fournisseurs sont tenus contractuellement de protéger vos données et ne peuvent
-      les utiliser qu'aux fins pour lesquelles elles leur sont communiquées.
-    </p>
+    <section>
+      <h2>5. Conservation des données</h2>
+      <p>Vos données sont conservées aussi longtemps que votre compte est actif. Si vous supprimez
+      votre compte, vos données personnelles et vos données métier sont effacées de nos
+      serveurs dans un délai de 30 jours, sauf obligation légale contraire.</p>
+    </section>
 
-    <h2>5. Conservation des données</h2>
-    <p>
-      Vos données sont conservées aussi longtemps que votre compte est actif. Si vous
-      supprimez votre compte, vos données personnelles et vos données métier sont effacées
-      de nos serveurs dans un délai de 30 jours, sauf obligation légale contraire.
-    </p>
+    <section>
+      <h2>6. Sécurité</h2>
+      <p>Nous appliquons des mesures techniques appropriées pour protéger vos données : chiffrement
+      en transit (HTTPS/TLS), authentification à deux facteurs disponible, mots de passe hachés.
+      Aucun système n'est infaillible, mais nous nous engageons à signaler tout incident de
+      confidentialité dans les délais prévus par la Loi 25.</p>
+    </section>
 
-    <h2>6. Sécurité</h2>
-    <p>
-      Nous appliquons des mesures techniques appropriées pour protéger vos données :
-      chiffrement en transit (HTTPS/TLS), authentification à deux facteurs disponible,
-      mots de passe hachés. Aucun système n'est infaillible, mais nous nous engageons à
-      signaler tout incident de confidentialité dans les délais prévus par la Loi 25.
-    </p>
+    <section>
+      <h2>7. Vos droits (Loi 25 et LPRPDE)</h2>
+      <p>Conformément à la Loi modernisant des dispositions législatives en matière de protection
+      des renseignements personnels (Loi 25) du Québec, vous disposez des droits suivants :</p>
+      <ul>
+        <li>Droit d'accès — obtenir une copie des données que nous détenons sur vous.</li>
+        <li>Droit de rectification — corriger des données inexactes ou incomplètes.</li>
+        <li>Droit à l'effacement — demander la suppression de vos données personnelles.</li>
+        <li>Droit à la portabilité — recevoir vos données dans un format structuré.</li>
+        <li>Droit de retrait du consentement — vous pouvez retirer votre consentement en tout temps.</li>
+      </ul>
+      <p style="margin-top:12px;">Pour exercer l'un de ces droits, écrivez-nous à <a href="mailto:fabrix@codimpact.ca">fabrix@codimpact.ca</a>.
+      Nous répondrons dans un délai de 30 jours.</p>
+    </section>
 
-    <h2>7. Vos droits (Loi 25 et LPRPDE)</h2>
-    <p>
-      Conformément à la <em>Loi modernisant des dispositions législatives en matière de
-      protection des renseignements personnels</em> (Loi 25) du Québec, vous disposez des
-      droits suivants :
-    </p>
-    <ul>
-      <li><strong>Droit d'accès</strong> — obtenir une copie des données que nous détenons sur vous.</li>
-      <li><strong>Droit de rectification</strong> — corriger des données inexactes ou incomplètes.</li>
-      <li><strong>Droit à l'effacement</strong> — demander la suppression de vos données personnelles.</li>
-      <li><strong>Droit à la portabilité</strong> — recevoir vos données dans un format structuré.</li>
-      <li><strong>Droit de retrait du consentement</strong> — vous pouvez retirer votre consentement en tout temps.</li>
-    </ul>
-    <p>
-      Pour exercer l'un de ces droits, écrivez-nous à
-      <a href="mailto:fabrix@codimpact.ca">fabrix@codimpact.ca</a>.
-      Nous répondrons dans un délai de 30 jours.
-    </p>
+    <section>
+      <h2>8. Mineurs</h2>
+      <p>Fabrix est destinée à des professionnels. Nous ne collectons sciemment aucune donnée
+      concernant des personnes de moins de 14 ans.</p>
+    </section>
 
-    <h2>8. Mineurs</h2>
-    <p>
-      Fabrix est destinée à des professionnels. Nous ne collectons sciemment aucune donnée
-      concernant des personnes de moins de 14 ans.
-    </p>
+    <section>
+      <h2>9. Modifications</h2>
+      <p>Cette politique peut être mise à jour. En cas de modification importante, nous vous en
+      informerons par courriel ou par une notification dans l'application. La version en
+      vigueur est toujours accessible à cette adresse.</p>
+    </section>
 
-    <h2>9. Modifications</h2>
-    <p>
-      Cette politique peut être mise à jour. En cas de modification importante, nous vous
-      en informerons par courriel ou par une notification dans l'application. La version en
-      vigueur est toujours accessible à cette adresse.
-    </p>
-
-    <h2>10. Nous joindre</h2>
-    <p>
-      Pour toute question ou demande relative à vos données personnelles :
-    </p>
-    <p>
-      <a href="mailto:fabrix@codimpact.ca">fabrix@codimpact.ca</a><br />
-      Codimpact — Québec, Canada
-    </p>
-
-    <div class="footer">
-      &copy; 2026 Codimpact &nbsp;·&nbsp;
-      <a href="../support/">Support</a>
-      &nbsp;·&nbsp;
-      <a href="../supprimer-compte/">Supprimer mon compte</a>
-    </div>
-
+    <section>
+      <h2>10. Nous joindre</h2>
+      <p>Pour toute question ou demande relative à vos données personnelles :</p>
+      <p style="margin-top:10px;">
+        <a href="mailto:fabrix@codimpact.ca">fabrix@codimpact.ca</a><br>
+        Codimpact — Québec, Canada
+      </p>
+    </section>
   </div>
+
+  <footer>Fabrix par Codimpact &bull; Québec, Canada</footer>
+</div>
 </body>
 </html>
