@@ -106,11 +106,10 @@
         <li>Données métier que vous saisissez (commandes, inventaire, événements, ventes).</li>
         <li>Identifiant d'abonnement anonymisé, transmis à RevenueCat pour la gestion des achats intégrés.</li>
         <li>Données techniques de session (jeton d'authentification, appareil), gérées par Appwrite.</li>
-        <li>Si vous utilisez l'intégration Square, des données de paiement (transactions, identifiant de commerçant) sont transmises à Square dans le cadre du traitement des ventes en personne.</li>
+        <li>Si vous utilisez l'intégration Square, des données de votre compte Square (ventes et inventaire) sont importées dans Fabrix à des fins de synchronisation. Aucune donnée n'est transmise vers Square par Fabrix.</li>
       </ul>
       <p style="margin-top:12px;">Nous ne collectons pas de données de géolocalisation ni de contacts. Les informations
-      financières collectées se limitent à ce qui est nécessaire à la validation de l'abonnement
-      et, le cas échéant, au traitement des paiements via Square.</p>
+      financières collectées se limitent à ce qui est nécessaire à la validation de l'abonnement.</p>
     </section>
 
     <section>
@@ -132,7 +131,7 @@
       <ul>
         <li><strong>Appwrite</strong> (infrastructure infonuagique, Toronto, Canada) — authentification et stockage des données.</li>
         <li><strong>RevenueCat</strong> (États-Unis) — gestion des abonnements et des achats intégrés via l'App Store et Google Play.</li>
-        <li><strong>Square</strong> (États-Unis) — traitement des paiements en personne, pour les utilisateurs ayant activé l'intégration Square. Les données transmises sont régies par la <a href="https://squareup.com/ca/fr/legal/general/privacy" target="_blank">politique de confidentialité de Square</a>.</li>
+        <li><strong>Square</strong> (États-Unis) — pour les utilisateurs ayant connecté leur compte Square, Fabrix importe en lecture seule vos ventes et votre inventaire Square afin de les synchroniser dans l'application. Les données de votre compte Square sont régies par la <a href="https://squareup.com/ca/fr/legal/general/privacy" target="_blank">politique de confidentialité de Square</a>.</li>
       </ul>
       <p style="margin-top:12px;">Ces fournisseurs sont tenus contractuellement de protéger vos données et ne peuvent les
       utiliser qu'aux fins pour lesquelles elles leur sont communiquées.</p>
